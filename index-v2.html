@@ -681,7 +681,7 @@ body{background:var(--bg);min-height:100vh}
       <div class="cs-section-body">In August 2025, Elizabeth Seton Children's broke ground on their new 96-bed young adult center in White Plains, NY, the first standalone facility of its kind in the United States, providing care for young adults aged 18 to 35 with complex medical needs. The facility is expected to open in January 2028.</div>
     </div>
     <div class="cs-video-embed">
-      <iframe src="https://player.vimeo.com/video/1197837295?h=1a1b3c715b" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="" loading="lazy" title="Elizabeth Seton Children's · Featured Video" data-ready="true"></iframe>
+      <iframe src="https://player.vimeo.com/video/1197837295?h=1a1b3c715b" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="" loading="lazy" title="Elizabeth Seton Children's · Featured Video"></iframe>
     </div>
     <div class="cs-footer-meta">First standalone young adult complex-care facility in the U.S. · 96 beds · $156M · Groundbreaking Aug 2025</div>
   </div>
@@ -787,37 +787,6 @@ window.addEventListener("load", function(){
       if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); load(el); }
     });
   });
-})();
-</script>
-
-
-<script id="tm-live-loader">
-(function(){
-  var DB = 'https://talex-media-default-rtdb.firebaseio.com', KEY = 'dentons-review-bf73f288', BAKED = 'mt8pmhbc';
-  var wrap = document.querySelector('#wrap');
-  if(!wrap || !window.fetch) return;
-  fetch(DB + '/published/' + KEY + '.json', {cache: 'no-store'})
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(p){
-      if(!p || !p.html || !p.version) return;
-      if(p.version === BAKED) return;   // already baked into this file
-      var tmp = document.createElement('div');
-      tmp.innerHTML = p.html;
-      tmp.querySelectorAll('[contenteditable]').forEach(function(el){
-        el.removeAttribute('contenteditable');
-        el.removeAttribute('data-tmedit');
-        el.classList.remove('tm-edit');
-        if(!el.getAttribute('class')) el.removeAttribute('class');
-      });
-      tmp.querySelectorAll('.tm-chip').forEach(function(el){ el.remove(); });
-      tmp.querySelectorAll('.tm-idea').forEach(function(el){
-        el.classList.remove('tm-idea');
-        if(!el.getAttribute('class')) el.removeAttribute('class');
-      });
-      var bar = tmp.querySelector('#tm-bar'); if(bar) bar.remove();
-      wrap.innerHTML = tmp.innerHTML;
-    })
-    .catch(function(){});
 })();
 </script>
 
